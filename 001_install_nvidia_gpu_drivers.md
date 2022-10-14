@@ -75,3 +75,6 @@ should display something like the following message. If it's not the case, try t
 
 ### 3. Install nvidia docker runtime
 
+```bash
+sudo apt-get install -y nvidia-docker2
+```

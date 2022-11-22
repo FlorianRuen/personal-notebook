@@ -49,4 +49,4 @@ Everything fine, you can go in your app launch to launch Nord VPN (be careful to
 ### 4. Monitor the VPN Status
 
 For this, no existing library works very well, so I'm using the ConkyRC
-You can find all configuration here : [WORK IN PROGRESS]
+You can find all configuration here : [Install Conky to monitor system metrics and VPN status](https://github.com/FlorianRuen/personal-notebook/blob/main/003_install_custom_conkyrc.md)

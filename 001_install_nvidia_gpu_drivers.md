@@ -38,7 +38,7 @@ You can download the cudnn 7 archive (for CUDA 10.2, be careful), directly from 
 When download is finished, extract them and copy all the files to the CUDA directory using
 
 ```bash
-tar -xzvf cudnn-11.0-linux-x64-v8.0.2.39.tgz
+tar -xzvf cudnn-10.2-linux-x64-v7.6.5.32.tgz
 sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*

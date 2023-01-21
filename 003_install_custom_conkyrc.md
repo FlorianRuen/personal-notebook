@@ -17,10 +17,16 @@ sudo apt-get install conky-all
 My custom Conky template display standard informations about CPU, CGU, Network, Disk and add few informations related to VPN (work only with NordVPN
 at the moment, and it require NordVPN CLI to be installed and logged in)
 
+First, create / copy a config file to a specific folder in order for conky to use it when starting
+
+```bash
+cp /etc/conky/conky.conf ~/.conkyrc
+```
+
 To proceed, you can change the conky.conf file, and use mine : [you can find my config file here](https://github.com/FlorianRuen/personal-notebook/blob/main/conky/conky.conf)
 
 
-### 3. Customiza this template
+### 3. Customize this template
 
 To customiza, just follow the conky documentation to check all available variables
 You can also use the exec command to execute shell scripts and display results on your conky desktop widgets

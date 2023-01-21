@@ -78,3 +78,12 @@ should display something like the following message. If it's not the case, try t
 ```bash
 sudo apt-get install -y nvidia-docker2
 ```
+
+### 4. Create auto-rebuild script when kernel upgrade (optional)
+
+The problem is, when Ubuntu will upgrade your kernel, all the nvidia drivers must be rebuild to works as expected
+In order to auto-rebuild, my solution is to execute a script at startup
+
+If plugins are not working (using result of nvidia-smi command), it will automatically run all the commands above
+
+https://linuxconfig.org/how-to-run-script-on-startup-on-ubuntu-20-04-focal-fossa-server-desktop#:~:text=The%20Ubuntu%2020.04%20is%20based,service%20during%20the%20system%20boot.

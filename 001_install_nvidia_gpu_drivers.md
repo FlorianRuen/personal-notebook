@@ -86,4 +86,40 @@ In order to auto-rebuild, my solution is to execute a script at startup
 
 If plugins are not working (using result of nvidia-smi command), it will automatically run all the commands above
 
-https://linuxconfig.org/how-to-run-script-on-startup-on-ubuntu-20-04-focal-fossa-server-desktop#:~:text=The%20Ubuntu%2020.04%20is%20based,service%20during%20the%20system%20boot.
+```bash
+#! /bin/bash
+
+if [ $(exec nvidia-smi | grep failed | wc -l) -eq "0" ];
+then
+        notify-send "NVIDIA drivers not working, installation will begin"
+        sudo -A apt remove "*nvidia*" -y
+        sudo -A apt install nvidia-driver-470 -y
+        notify-send "NVIDIA drivers rebuilt!"
+fi
+```
+
+This password will require a password, so it's easier to launch it manually, but if you want to setup as startup script you can follow these steps
+
+Create a system.d file in `/etc/systemd/system` and put the following content inside
+
+```bash
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/auto-upgrade-nvidia-drivers.sh
+
+[Install]
+WantedBy=default.target
+```
+
+Where auto-upgrade-nvidia-drivers.sh is the file that contain the previous code
+Finally, set the permissions and run the service when your computer starts
+
+```bash
+sudo chmod 744 /usr/local/bin/auto-upgrade-nvidia-drivers.sh
+sudo chmod 664 /etc/systemd/system/auto-upgrade-nvidia-drivers.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable auto-upgrade-nvidia-drivers.service
+```
